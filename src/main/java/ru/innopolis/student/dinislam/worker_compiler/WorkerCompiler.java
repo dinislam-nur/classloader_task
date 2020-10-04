@@ -20,7 +20,7 @@ public interface WorkerCompiler {
     /**
      * Директория, октуда искать исходный код класса.
      */
-    String WORKER_IMPLEMENTATION_DIR = "src/main/java/ru/innopolis/student/dinislam/worker/impl/";
+    String WORKER_IMPLEMENTATION_DIR = "src/main/java/ru/innopolis/student/dinislam/worker/impl";
 
     /**
      * Компилируют исходный код в байт код класса, реализующего интерфейс Worker.
@@ -32,7 +32,7 @@ public interface WorkerCompiler {
         final StandardJavaFileManager standardFileManager = javac.getStandardFileManager(null, null, null);
         final Iterable<? extends JavaFileObject> javaFileObjects = standardFileManager
                 .getJavaFileObjects(
-                        new File(WORKER_IMPLEMENTATION_DIR + className + ".java"));
+                        new File(WORKER_IMPLEMENTATION_DIR + "/" + className + ".java"));
 
         final JavaCompiler.CompilationTask task = javac.getTask(
                 null,

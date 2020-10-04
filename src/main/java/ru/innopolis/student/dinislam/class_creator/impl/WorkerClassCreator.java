@@ -26,7 +26,7 @@ public class WorkerClassCreator implements ClassCreator {
     /**
      * Директория, в которой будет создан класс.
      */
-    private static final String DIRECTORY = "./src/main/java/ru/innopolis/student/dinislam/worker/impl/";
+    private static final String DIRECTORY = "./src/main/java/ru/innopolis/student/dinislam/worker/impl";
 
     /**
      * Создает файл с исходным кодом класса, реализующего интерфейс Worker, в пакете worker.
@@ -40,7 +40,7 @@ public class WorkerClassCreator implements ClassCreator {
         if (!dir.exists()) {
             dir.mkdir();
         }
-        final File file = new File(dir, className + ".java");
+        final File file = new File(dir, "/" + className + ".java");
         try (BufferedWriter writer = new BufferedWriter(
                 new FileWriter(file))) {
             writer.write(getBodyOfClass(className));
